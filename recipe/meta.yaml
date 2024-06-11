@@ -1,17 +1,18 @@
-{% set version = "0.4.3" %}
+{% set name = "py_stringmatching" %}
+{% set version = "0.4.5" %}
 
 package:
-  name: py_stringmatching
+  name: {{ name }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/p/py_stringmatching/py_stringmatching-{{ version }}.tar.gz
-  sha256: 921b9bb163b310df341c33823913204f7b0ca9f6a319f5b451408300bd378dee
+  url: https://pypi.io/packages/source/p/{{ name }}/py-stringmatching-{{ version }}.tar.gz
+  sha256: d97ba1b562ad98effc946687c5dab074c17a515114ab0dcf502202d5cec9f2b5
 
 build:
-  number: 1
-  skip: true  # [not x86_64]
-  script: {{ PYTHON }} -m pip install . --no-deps -vv
+  number: 0
+  #skip: true  # [not x86_64]
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   build:
@@ -20,13 +21,13 @@ requirements:
   host:
     - python
     - pip
+    - setuptools
+    - wheel
     - cython
     - numpy
-    - six
   run:
     - python
     - {{ pin_compatible('numpy') }}
-    - six
 
 test:
   imports:
@@ -34,9 +35,13 @@ test:
     - py_stringmatching.similarity_measure
     - py_stringmatching.tests
     - py_stringmatching.tokenizer
+  requires:
+    - pip
+  commands:
+    - pip check
 
 about:
-  home: https://sites.google.com/site/anhaidgroup/projects/py_stringmatching
+  home: https://sites.google.com/site/anhaidgroup/current-projects/magellan/py_stringmatching
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
@@ -45,7 +50,7 @@ about:
     This project seeks to build a Python software package that 
     consists of a comprehensive and scalable set of string tokenizers 
     (such as alphabetical tokenizers, whitespace tokenizers) and 
-  doc_url: http://anhaidgroup.github.io/py_stringmatching/
+  doc_url: https://anhaidgroup.github.io/py_stringmatching/
   dev_url: https://github.com/anhaidgroup/py_stringmatching
 
 extra:
