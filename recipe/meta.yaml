@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/p/{{ name }}/py-stringmatching-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/py-stringmatching-{{ version }}.tar.gz
   sha256: d97ba1b562ad98effc946687c5dab074c17a515114ab0dcf502202d5cec9f2b5
 
 build:
