@@ -51,9 +51,11 @@ about:
   license_file: LICENSE
   summary: Python library for string matching.
   description: |
-    This project seeks to build a Python software package that 
-    consists of a comprehensive and scalable set of string tokenizers 
-    (such as alphabetical tokenizers, whitespace tokenizers) and 
+    This project seeks to build a Python software package that
+    consists of a comprehensive and scalable set of string tokenizers
+    (such as alphabetical tokenizers, whitespace tokenizers) and
+    string similarity measures (such as edit distance, Jaccard,
+    TF/IDF).
   doc_url: https://anhaidgroup.github.io/py_stringmatching/
   dev_url: https://github.com/anhaidgroup/py_stringmatching
 
