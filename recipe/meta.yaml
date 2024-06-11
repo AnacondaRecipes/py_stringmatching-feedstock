@@ -30,6 +30,8 @@ requirements:
     - {{ pin_compatible('numpy') }}
 
 test:
+  source_files:
+    - py_stringmatching/tests
   imports:
     - py_stringmatching
     - py_stringmatching.similarity_measure
@@ -37,8 +39,10 @@ test:
     - py_stringmatching.tokenizer
   requires:
     - pip
+    - pytest
   commands:
     - pip check
+    - pytest -v py_stringmatching/tests
 
 about:
   home: https://sites.google.com/site/anhaidgroup/current-projects/magellan/py_stringmatching
